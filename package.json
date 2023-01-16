@@ -4,7 +4,8 @@
   "description": "A GitHub Action to populate .env file with Secrets",
   "main": "index.js",
   "scripts": {
-    "build": "npm i -g @vercel/ncc && ncc build index.js --license licenses.txt"
+    "install": "npm i -g @vercel/ncc && npm install",
+    "build": "ncc build index.js --license licenses.txt"
   },
   "repository": {
     "type": "git",

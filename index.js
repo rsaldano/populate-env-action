@@ -1,4 +1,4 @@
-// const core = require('@actions/core');
+const core = require('@actions/core');
 // const fs = require('fs');
 const github = require('@actions/github');
 
