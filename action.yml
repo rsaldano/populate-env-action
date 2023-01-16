@@ -1,0 +1,12 @@
+name: 'Populate env file'
+description: 'Populate environment file with secrets'
+inputs:
+  token:
+    description: 'GitHub Secret with read permission of secrets'
+    required: true
+outputs:
+  secrets:
+    description: 'Secrets collected from the repository'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'

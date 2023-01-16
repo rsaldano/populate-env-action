@@ -1,0 +1,36 @@
+{
+  "name": "populate-env-action",
+  "version": "1.0.0",
+  "description": "A GitHub Action to populate .env file with Secrets",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm i -g @vercel/ncc && ncc build index.js --license licenses.txt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rsaldano/populate-env-action.git"
+  },
+  "keywords": [
+    "github",
+    "action",
+    "github-action",
+    "secret",
+    "secrets",
+    "env",
+    "environment",
+    "environment-file",
+    "js",
+    "javascript"
+  ],
+  "author": "Rodrigo Saldaño",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rsaldano/populate-env-action/issues"
+  },
+  "homepage": "https://github.com/rsaldano/populate-env-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@octokit/rest": "^19.0.5",
+    "fs": "^0.0.1-security"
+  }
+}
