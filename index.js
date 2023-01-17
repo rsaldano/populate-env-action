@@ -5,24 +5,20 @@ const github = require('@actions/github');
 // const fileName = core.getInput('file-name') || '.env';
 const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/');
 
-async function run() {
-  try {
-    const token = core.getInput('token');
-    const octokit = github.getOctokit(token);
+try {
+  const token = core.getInput('token');
+  const octokit = github.getOctokit(token);
 
-    const secrets = octokit.rest.actions.listRepoSecrets({
-      owner,
-      repo,
-    });
+  const secrets = octokit.rest.actions.listRepoSecrets({
+    owner,
+    repo,
+  });
 
-    console.log(secrets);
-    core.setOutput('secrets', secrets);
-  } catch (error) {
-    core.setFailed(error.message);
-  }
+  console.log(secrets);
+  core.setOutput('secrets', secrets);
+} catch (error) {
+  core.setFailed(error.message);
 }
-
-run();
 
 // try {
 
