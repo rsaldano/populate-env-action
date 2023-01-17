@@ -9779,20 +9779,24 @@ const github = __nccwpck_require__(7229);
 // const fileName = core.getInput('file-name') || '.env';
 const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/');
 
-try {
-  const token = core.getInput('token');
-  const octokit = github.getOctokit(token);
+async function run() {
+  try {
+    const token = core.getInput('token');
+    const octokit = github.getOctokit(token);
 
-  const secrets = octokit.rest.actions.listRepoSecrets({
-    owner,
-    repo,
-  });
+    const secrets = await octokit.rest.actions.listRepoSecrets({
+      owner,
+      repo,
+    });
 
-  console.log(secrets);
-  core.setOutput('secrets', secrets);
-} catch (error) {
-  core.setFailed(error.message);
+    console.log(secrets);
+    core.setOutput('secrets', secrets);
+  } catch (error) {
+    core.setFailed(error.message);
+  }
 }
+
+run();
 
 // try {
 
